@@ -76,3 +76,7 @@ echo "[Setup] Created .env.production, .env.staging, .env.testing files."
 # --- Run the hook once ---
 echo "[Setup] Running post-checkout hook once..."
 bash "$HOOK_PATH"
+
+# --- Set assume-unchanged on wrangler.jsonc ---
+echo "[Setup] Setting git to assume unchanged for wrangler.jsonc"
+git update-index --assume-unchanged wrangler.jsonc
