@@ -84,3 +84,5 @@ next-env.d.ts
 !.dev.vars.example
 .env*
 !.env.example
+
+wrangler.jsonc
