@@ -3,11 +3,19 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-blue: #003f5c;
+  --primary-gold: #ffcc00;
+  --light-gray: #f3f4f6;
+  --dark-gray: #696969;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary-blue: var(--primary-blue);
+  --color-primary-gold: var(--primary-gold);
+  --color-light-gray: var(--light-gray);
+  --color-dark-gray: var(--dark-gray);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -22,5 +30,79 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Video background placeholder styles */
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+
+.video-placeholder {
+  color: #666;
+  font-size: 1.2rem;
+  text-align: center;
+  opacity: 0.7;
+}
+
+/* Custom color classes for the new color scheme */
+.text-church-blue {
+  color: #003f5c;
+}
+
+.bg-church-blue {
+  background-color: #003f5c;
+}
+
+.text-church-gold {
+  color: #ffcc00;
+}
+
+.bg-church-gold {
+  background-color: #ffcc00;
+}
+
+.text-church-gray {
+  color: #696969;
+}
+
+.bg-church-gray {
+  background-color: #696969;
+}
+
+.border-church-blue {
+  border-color: #003f5c;
+}
+
+.border-church-gold {
+  border-color: #ffcc00;
+}
+
+.hover\:bg-church-blue:hover {
+  background-color: #003f5c;
+}
+
+.hover\:bg-church-gold:hover {
+  background-color: #ffcc00;
+}
+
+.hover\:text-church-blue:hover {
+  color: #003f5c;
+}
+
+.hover\:text-church-gold:hover {
+  color: #ffcc00;
+}
+
+.focus\:ring-church-blue:focus {
+  --tw-ring-color: #003f5c;
 }
