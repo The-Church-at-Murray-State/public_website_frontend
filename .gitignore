@@ -81,5 +81,5 @@ next-env.d.ts
 .dev.vars*
 
 !.dev.vars.example
-.env*
+#.env*
 !.env.example
