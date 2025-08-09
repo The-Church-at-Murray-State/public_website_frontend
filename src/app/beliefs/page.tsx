@@ -1,40 +1,72 @@
+"use client";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Beliefs() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="relative z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center">
-              <Link href="/" className="text-2xl font-bold text-church-blue">The Church at Murray State</Link>
-            </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-6">
-                <Link href="/" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                  Home
-                </Link>
-                <Link href="/beliefs" className="text-church-blue hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                  Beliefs
-                </Link>
-                <Link href="/what-to-expect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                  What to Expect
-                </Link>
-                <Link href="/messages" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                  Messages
-                </Link>
-                <Link href="/donations" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                  Donations
-                </Link>
-                <Link href="/contact" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                  Contact
-                </Link>
-              </div>
+      <nav className="enhanced-navbar relative z-50">
+        <div className="navbar-logo-absolute">
+          <Link href="/">
+            <img 
+              src="/logos/MCF Church Logo1.jpg" 
+              alt="The Church at Murray State" 
+              className="navbar-logo"
+            />
+          </Link>
+        </div>
+        <div className="navbar-container">
+          <div className="block md:hidden absolute right-4">
+            <button
+              aria-label="Toggle navigation menu"
+              onClick={() => {
+                setIsMenuOpen((o) => {
+                  const next = !o;
+                  console.log("[Beliefs] toggle menu ->", next);
+                  return next;
+                });
+              }}
+              className="cursor-pointer text-church-gray hover:text-church-gold"
+            >
+              <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+          <div className="navbar-links-section hidden md:block">
+            <div className="navbar-links">
+              <Link href="/" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                Home
+              </Link>
+              <Link href="/beliefs" className="text-church-blue hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                Beliefs
+              </Link>
+              <Link href="/what-to-expect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                What to Expect
+              </Link>
+              {/* Messages link hidden until ready */}
+              <Link href="/donations" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                Donations
+              </Link>
+              <Link href="/connect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                Connect
+              </Link>
             </div>
           </div>
+          <div className="hidden md:block"></div>
         </div>
       </nav>
+      <div className={`mobile-menu w-full ${isMenuOpen ? "block" : "hidden"} md:hidden`}>
+        <div className="px-4 py-3">
+          <Link href="/" className="">Home</Link>
+          <Link href="/beliefs" className="">Beliefs</Link>
+          <Link href="/what-to-expect" className="">What to Expect</Link>
+          <Link href="/donations" className="">Donations</Link>
+          <Link href="/connect" className="">Connect</Link>
+        </div>
+      </div>
 
       {/* Hero Section */}
       <section className="bg-church-blue text-white py-20">
@@ -81,15 +113,15 @@ export default function Beliefs() {
                 <p className="text-gray-700 leading-relaxed">
                   Though the Scripture is God-breathed, it was also penned by humans. The divine was entrusted to the natural 
                   and conveyed in numerous genres, contextual settings, and occasions over vast distance of time and space. 
-                  These realities necessitate careful consideration of contexts and authorial intent in discerning Scripture's meaning.
+                  These realities necessitate careful consideration of contexts and authorial intent in discerning Scripture&apos;s meaning.
                 </p>
               </div>
 
               <div className="bg-gray-50 p-8 rounded-lg">
-                <h3 className="text-2xl font-bold text-church-blue mb-4">The Holy Spirit's Role</h3>
+                <h3 className="text-2xl font-bold text-church-blue mb-4">The Holy Spirit&apos;s Role</h3>
                 <p className="text-gray-700 leading-relaxed">
                   Just as the Holy Spirit inspired the writing of the Scriptures, He also works in the hearts and minds 
-                  of people who read God's Word. The Holy Spirit is able to convict hearts, renew minds, and work in power 
+                  of people who read God&apos;s Word. The Holy Spirit is able to convict hearts, renew minds, and work in power 
                   to change lives, utilizing any translation to lead a person to saving knowledge of the truth found in Jesus.
                 </p>
               </div>
@@ -115,7 +147,7 @@ export default function Beliefs() {
                 <h3 className="text-2xl font-bold text-church-blue mb-4">God the Father</h3>
                 <p className="text-gray-700 leading-relaxed">
                   The Father is the Creator of the world, sovereign over all parts of His creation, and works providentially 
-                  for His people in all times and places. God's desire for the salvation of mankind is evident in the 
+                  for His people in all times and places. God&apos;s desire for the salvation of mankind is evident in the 
                   sending of His Son to be sacrificed on behalf of sinful humans.
                 </p>
               </div>
@@ -134,8 +166,8 @@ export default function Beliefs() {
                 <h3 className="text-2xl font-bold text-church-blue mb-4">God the Holy Spirit</h3>
                 <p className="text-gray-700 leading-relaxed">
                   The Holy Spirit proceeds from the Son and Father to convict the world of sin, righteousness, and judgment. 
-                  He regenerates believers' hearts, dwells within them, testifies on their behalf, sanctifies them, and draws 
-                  them into Christ's image. The Holy Spirit is the seal of believers, their guarantee of redemption, and 
+                  He regenerates believers&apos; hearts, dwells within them, testifies on their behalf, sanctifies them, and draws 
+                  them into Christ&apos;s image. The Holy Spirit is the seal of believers, their guarantee of redemption, and 
                   equips them for Kingdom service.
                 </p>
               </div>
@@ -151,7 +183,7 @@ export default function Beliefs() {
                 <h3 className="text-2xl font-bold text-church-blue mb-4">Image and Sin</h3>
                 <p className="text-gray-700 leading-relaxed">
                   Mankind—male and female alike—bears the image of God, making all humans inherently valuable. God made man 
-                  upright as morally responsible agents. Nevertheless, Adam's failure led to sin and death spreading to all 
+                  upright as morally responsible agents. Nevertheless, Adam&apos;s failure led to sin and death spreading to all 
                   his progeny. All humans are born into sin and are sinners by nature and choice, separated from God and 
                   incapable of attaining salvation by their own works.
                 </p>
@@ -160,7 +192,7 @@ export default function Beliefs() {
               <div className="bg-gray-50 p-8 rounded-lg">
                 <h3 className="text-2xl font-bold text-church-blue mb-4">Salvation by Grace Alone</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Salvation is afforded to believers through Jesus alone, by grace alone, through faith alone, for God's 
+                  Salvation is afforded to believers through Jesus alone, by grace alone, through faith alone, for God&apos;s 
                   glory alone. For any person who repents of sin, acknowledges Christ as Lord, and believes that Jesus 
                   was raised from the dead, such a person will be saved through justification, sanctification, and 
                   glorification—culminating in resurrection to new life in the New Heavens and New Earth.
@@ -216,7 +248,7 @@ export default function Beliefs() {
               <div className="bg-white border-2 border-blue-800 p-6 rounded-lg">
                 <h3 className="text-xl font-bold text-blue-800 mb-3">Scripture-Based</h3>
                 <p className="text-gray-700">
-                  We are committed to expository preaching and teaching that faithfully explains God's Word.
+                  We are committed to expository preaching and teaching that faithfully explains God&apos;s Word.
                 </p>
               </div>
 
@@ -244,10 +276,10 @@ export default function Beliefs() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-church-blue mb-6">Have Questions?</h2>
           <p className="text-xl text-gray-600 mb-8">
-            We'd love to discuss our beliefs with you and answer any questions you might have.
+            We&apos;d love to discuss our beliefs with you and answer any questions you might have.
           </p>
           <Link 
-            href="/contact"
+            href="/connect"
             className="bg-church-gold hover:bg-church-gold text-white font-semibold py-3 px-8 rounded-lg text-lg transition-colors duration-200 shadow-lg"
           >
             Get In Touch
@@ -258,7 +290,7 @@ export default function Beliefs() {
       {/* Footer */}
       <footer className="bg-church-blue text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 items-start">
             <div>
               <h3 className="text-xl font-bold mb-4">The Church at Murray State</h3>
               <p className="text-gray-300">

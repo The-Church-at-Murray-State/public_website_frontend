@@ -1,40 +1,72 @@
+"use client";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Donations() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="relative z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center">
-              <Link href="/" className="text-2xl font-bold text-church-blue">The Church at Murray State</Link>
-            </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-6">
-                <Link href="/" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                  Home
-                </Link>
-                <Link href="/beliefs" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                  Beliefs
-                </Link>
-                <Link href="/what-to-expect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                  What to Expect
-                </Link>
-                <Link href="/messages" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                  Messages
-                </Link>
-                <Link href="/donations" className="text-church-blue hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                  Donations
-                </Link>
-                <Link href="/contact" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                  Contact
-                </Link>
-              </div>
+      <nav className="enhanced-navbar relative z-50">
+        <div className="navbar-logo-absolute">
+          <Link href="/">
+            <img 
+              src="/logos/MCF Church Logo1.jpg" 
+              alt="The Church at Murray State" 
+              className="navbar-logo"
+            />
+          </Link>
+        </div>
+        <div className="navbar-container">
+          <div className="block md:hidden absolute right-4">
+            <button
+              aria-label="Toggle navigation menu"
+              onClick={() => {
+                setIsMenuOpen((o) => {
+                  const next = !o;
+                  console.log("[Donations] toggle menu ->", next);
+                  return next;
+                });
+              }}
+              className="cursor-pointer text-church-gray hover:text-church-gold"
+            >
+              <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+          <div className="navbar-links-section hidden md:block">
+            <div className="navbar-links">
+              <Link href="/" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                Home
+              </Link>
+              <Link href="/beliefs" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                Beliefs
+              </Link>
+              <Link href="/what-to-expect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                What to Expect
+              </Link>
+              {/* Messages link hidden until ready */}
+              <Link href="/donations" className="text-church-blue hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                Donations
+              </Link>
+              <Link href="/connect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                Connect
+              </Link>
             </div>
           </div>
+          <div className="hidden md:block"></div>
         </div>
       </nav>
+      <div className={`mobile-menu w-full ${isMenuOpen ? "block" : "hidden"} md:hidden`}>
+        <div className="px-4 py-3">
+          <Link href="/" className="">Home</Link>
+          <Link href="/beliefs" className="">Beliefs</Link>
+          <Link href="/what-to-expect" className="">What to Expect</Link>
+          <Link href="/donations" className="">Donations</Link>
+          <Link href="/connect" className="">Connect</Link>
+        </div>
+      </div>
 
       {/* Hero Section */}
       <section className="bg-church-blue text-white py-20">
@@ -53,7 +85,7 @@ export default function Donations() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-church-blue mb-6">Our Heart for Giving</h2>
             <p className="text-xl text-gray-600 leading-relaxed">
-              Giving is an act of worship and a response to God's generous love toward us. 
+              Giving is an act of worship and a response to God&apos;s generous love toward us. 
               We believe in cheerful, voluntary giving that flows from a grateful heart.
             </p>
           </div>
@@ -65,8 +97,8 @@ export default function Donations() {
               <div className="bg-white p-6 rounded-lg">
                 <h4 className="text-lg font-bold text-church-blue mb-3">2 Corinthians 9:7</h4>
                 <p className="text-gray-700 italic mb-3">
-                  "Each of you should give what you have decided in your heart to give, not reluctantly 
-                  or under compulsion, for God loves a cheerful giver."
+                  &quot;Each of you should give what you have decided in your heart to give, not reluctantly 
+                  or under compulsion, for God loves a cheerful giver.&quot;
                 </p>
                 <p className="text-gray-600 text-sm">
                   We believe giving should be joyful and voluntary, not burdensome or pressured.
@@ -76,8 +108,8 @@ export default function Donations() {
               <div className="bg-white p-6 rounded-lg">
                 <h4 className="text-lg font-bold text-church-blue mb-3">Malachi 3:10</h4>
                 <p className="text-gray-700 italic mb-3">
-                  "Bring the whole tithe into the storehouse, that there may be food in my house. 
-                  Test me in this,' says the Lord Almighty..."
+                  &quot;Bring the whole tithe into the storehouse, that there may be food in my house. 
+                  Test me in this,&apos; says the Lord Almighty...&quot;
                 </p>
                 <p className="text-gray-600 text-sm">
                   God invites us to participate in His work through our faithful giving.
@@ -153,13 +185,13 @@ export default function Donations() {
               <h3 className="text-2xl font-bold mb-6 text-center">Give During Sunday Service</h3>
               <p className="text-blue-200 text-center mb-6 text-lg">
                 We collect offerings during our Sunday worship service. You can give cash or check 
-                made out to "The Church at Murray State."
+                made out to &quot;The Church at Murray State.&quot;
               </p>
               
               <div className="bg-black/20 p-6 rounded-lg text-center">
                 <h4 className="text-xl font-bold text-church-gold mb-4">💳 Online Giving Coming Soon</h4>
                 <p className="text-blue-200">
-                  We're working on setting up secure online giving options including credit/debit cards, 
+                  We&apos;re working on setting up secure online giving options including credit/debit cards, 
                   bank transfers, and recurring donations. Check back soon for these convenient options!
                 </p>
               </div>
@@ -178,7 +210,7 @@ export default function Donations() {
                 <div>
                   <h4 className="text-lg font-bold text-church-blue mb-2">Give Prayerfully</h4>
                   <p className="text-gray-700">
-                    Seek God's guidance about how much to give. Consider your financial situation 
+                    Seek God&apos;s guidance about how much to give. Consider your financial situation 
                     and give what you can cheerfully and faithfully.
                   </p>
                 </div>
@@ -204,7 +236,7 @@ export default function Donations() {
                 <div>
                   <h4 className="text-lg font-bold text-church-blue mb-2">Faithful Stewardship</h4>
                   <p className="text-gray-700">
-                    We commit to using all gifts wisely and transparently to advance God's kingdom 
+                    We commit to using all gifts wisely and transparently to advance God&apos;s kingdom 
                     and serve our community effectively.
                   </p>
                 </div>
@@ -215,34 +247,26 @@ export default function Donations() {
         </div>
       </section>
 
-      {/* Contact for Questions */}
-      <section className="bg-church-gold text-white py-16">
+      {/* Contact for Questions - match Beliefs CTA styling */}
+      <section className="bg-gray-50 py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Questions About Giving?</h2>
-          <p className="text-xl mb-8">
-            We're here to help answer any questions you might have about giving or financial stewardship.
+          <h2 className="text-3xl font-bold text-church-blue mb-6">Questions About Giving?</h2>
+          <p className="text-xl text-gray-600 mb-8">
+            We&apos;re here to help answer any questions you might have about giving or financial stewardship.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/contact"
-              className="bg-white text-church-gold hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg text-lg transition-colors duration-200"
-            >
-              Contact Pastor James
-            </Link>
-            <Link 
-              href="/contact"
-              className="bg-transparent border-2 border-white hover:bg-white hover:text-church-gold text-white font-semibold py-3 px-8 rounded-lg text-lg transition-colors duration-200"
-            >
-              General Questions
-            </Link>
-          </div>
+          <Link 
+            href="/connect"
+            className="bg-church-gold hover:bg-church-gold text-white font-semibold py-3 px-8 rounded-lg text-lg transition-colors duration-200 shadow-lg"
+          >
+            Get In Touch
+          </Link>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="bg-church-blue text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 items-start">
             <div>
               <h3 className="text-xl font-bold mb-4">The Church at Murray State</h3>
               <p className="text-gray-300">

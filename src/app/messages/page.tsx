@@ -4,33 +4,37 @@ export default function Messages() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="relative z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center">
-              <Link href="/" className="text-2xl font-bold text-church-blue">The Church at Murray State</Link>
-            </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-6">
-                <Link href="/" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                  Home
-                </Link>
-                <Link href="/beliefs" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                  Beliefs
-                </Link>
-                <Link href="/what-to-expect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                  What to Expect
-                </Link>
-                <Link href="/messages" className="text-church-blue hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                  Messages
-                </Link>
-                <Link href="/donations" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                  Donations
-                </Link>
-                <Link href="/contact" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                  Contact
-                </Link>
-              </div>
+      <nav className="enhanced-navbar relative z-50">
+        <div className="navbar-logo-absolute">
+          <Link href="/">
+            <img 
+              src="/logos/MCF Church Logo1.jpg" 
+              alt="The Church at Murray State" 
+              className="navbar-logo"
+            />
+          </Link>
+        </div>
+        <div className="navbar-container">
+          <div className="navbar-links-section hidden md:block">
+            <div className="navbar-links">
+              <Link href="/" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                Home
+              </Link>
+              <Link href="/beliefs" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                Beliefs
+              </Link>
+              <Link href="/what-to-expect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                What to Expect
+              </Link>
+              <Link href="/messages" className="text-church-blue hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                Messages
+              </Link>
+              <Link href="/donations" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                Donations
+              </Link>
+              <Link href="/connect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                Connect
+              </Link>
             </div>
           </div>
         </div>
@@ -58,7 +62,7 @@ export default function Messages() {
             </div>
             <h2 className="text-3xl font-bold text-amber-800 mb-4">Message Archive Coming Soon</h2>
             <p className="text-xl text-amber-700 mb-6">
-              We're working on setting up our sermon archive so you can listen to previous messages online.
+              We&apos;re working on setting up our sermon archive so you can listen to previous messages online.
             </p>
             <p className="text-lg text-church-gold">
               Check back soon for audio and video recordings of our Sunday teachings!
@@ -79,7 +83,7 @@ export default function Messages() {
                 <h3 className="text-xl font-bold text-church-blue mb-3">Biblical & Expository</h3>
                 <p className="text-church-gray">
                   Our messages are rooted in Scripture and seek to explain the text clearly, 
-                  showing how God's Word applies to our lives today.
+                  showing how God&apos;s Word applies to our lives today.
                 </p>
               </div>
 
@@ -104,7 +108,7 @@ export default function Messages() {
                 </div>
                 <h3 className="text-xl font-bold text-church-blue mb-3">Practical Application</h3>
                 <p className="text-church-gray">
-                  We don't just explain what the Bible says, but help you understand 
+                  We don&apos;t just explain what the Bible says, but help you understand 
                   how to live it out in your daily life.
                 </p>
               </div>
@@ -117,7 +121,7 @@ export default function Messages() {
                 </div>
                 <h3 className="text-xl font-bold text-church-blue mb-3">Accessible to All</h3>
                 <p className="text-church-gray">
-                  Whether you're new to the Bible or have been studying it for years, 
+                  Whether you&apos;re new to the Bible or have been studying it for years, 
                   our messages are designed to be clear and understandable.
                 </p>
               </div>
@@ -130,10 +134,10 @@ export default function Messages() {
             <div className="bg-black/20 p-8 rounded-lg">
               <h3 className="text-2xl font-bold text-amber-400 mb-4">📚 Series Information Coming Soon</h3>
               <p className="text-blue-200 text-lg mb-4">
-                We're currently planning our upcoming teaching series and will share details soon.
+                We&apos;re currently planning our upcoming teaching series and will share details soon.
               </p>
               <p className="text-blue-200">
-                Join us on Sunday mornings to hear God's Word taught with clarity and passion!
+                Join us on Sunday mornings to hear God&apos;s Word taught with clarity and passion!
               </p>
             </div>
           </div>
@@ -195,7 +199,7 @@ export default function Messages() {
               Plan Your Visit
             </Link>
             <Link 
-              href="/contact"
+              href="/connect"
               className="bg-transparent border-2 border-white hover:bg-white hover:text-church-gold text-white font-semibold py-3 px-8 rounded-lg text-lg transition-colors duration-200"
             >
               Ask Questions
@@ -207,7 +211,7 @@ export default function Messages() {
       {/* Footer */}
       <footer className="bg-church-blue text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 items-start">
             <div>
               <h3 className="text-xl font-bold mb-4">The Church at Murray State</h3>
               <p className="text-gray-300">
