@@ -16,14 +16,16 @@ echo "[Hook] Current branch: $BRANCH"
 echo "[Hook] Setting Wrangler name to: $WRANGLER_NAME"
 echo "[Hook] Using env file: $ENV_FILE"
 
-# Determine route pattern
+# Determine route patterns
 if [ "$LOWER_BRANCH" = "production" ]; then
   ROUTE_PATTERN="thechurchatmurraystate.com"
+  WWW_ROUTE_PATTERN="www.thechurchatmurraystate.com"
 else
   ROUTE_PATTERN="$LOWER_BRANCH.thechurchatmurraystate.com"
+  WWW_ROUTE_PATTERN="www.$LOWER_BRANCH.thechurchatmurraystate.com"
 fi
 
-echo "[Hook] Setting route pattern to: $ROUTE_PATTERN"
+echo "[Hook] Setting route patterns to: $ROUTE_PATTERN and $WWW_ROUTE_PATTERN"
 
 # Update wrangler.jsonc
 if [ -f "wrangler.jsonc" ]; then
@@ -32,9 +34,30 @@ if [ -f "wrangler.jsonc" ]; then
   # Replace the "name" field
   sed -i.bak -E 's/"name": *".*"/"name": "'"$WRANGLER_NAME"'"/' wrangler.jsonc
 
-  # Replace the pattern inside the "routes" array
-  # This assumes pattern line looks like: "pattern": "something",
-  sed -i.bak -E 's#"pattern": *"[^"]*"#"pattern": "'"$ROUTE_PATTERN"'"#' wrangler.jsonc
+  # Replace the entire routes array with both routes
+  # First, find the start and end of the routes array
+  START_LINE=$(grep -n '"routes"' wrangler.jsonc | cut -d: -f1)
+  if [ -n "$START_LINE" ]; then
+    # Find the closing bracket of the routes array
+    END_LINE=$(tail -n +$START_LINE wrangler.jsonc | grep -n '^[[:space:]]*]' | head -1 | cut -d: -f1)
+    END_LINE=$((START_LINE + END_LINE - 1))
+    
+    # Create new routes content
+    NEW_ROUTES='"routes": [
+		{
+			"pattern": "'"$ROUTE_PATTERN"'",
+			"custom_domain": true
+		},
+		{
+			"pattern": "'"$WWW_ROUTE_PATTERN"'",
+			"custom_domain": true
+		}
+	],'
+    
+    # Replace the routes section
+    sed -i.bak -e "${START_LINE},${END_LINE}c\\
+$NEW_ROUTES" wrangler.jsonc
+  fi
 
   # Optional: clean up backup
   rm wrangler.jsonc.bak
