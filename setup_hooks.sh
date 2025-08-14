@@ -34,29 +34,37 @@ if [ -f "wrangler.jsonc" ]; then
   # Replace the "name" field
   sed -i.bak -E 's/"name": *".*"/"name": "'"$WRANGLER_NAME"'"/' wrangler.jsonc
 
-  # Replace the entire routes array with both routes
-  # First, find the start and end of the routes array
-  START_LINE=$(grep -n '"routes"' wrangler.jsonc | cut -d: -f1)
-  if [ -n "$START_LINE" ]; then
-    # Find the closing bracket of the routes array
-    END_LINE=$(tail -n +$START_LINE wrangler.jsonc | grep -n '^[[:space:]]*]' | head -1 | cut -d: -f1)
-    END_LINE=$((START_LINE + END_LINE - 1))
-    
-    # Create new routes content
-    NEW_ROUTES='"routes": [
+  # Create a temporary file with the new routes array
+  cat > /tmp/new_routes.json << ROUTES_EOF
+	"routes": [
 		{
-			"pattern": "'"$ROUTE_PATTERN"'",
+			"pattern": "$ROUTE_PATTERN",
 			"custom_domain": true
 		},
 		{
-			"pattern": "'"$WWW_ROUTE_PATTERN"'",
+			"pattern": "$WWW_ROUTE_PATTERN",
 			"custom_domain": true
 		}
-	],'
+	],
+ROUTES_EOF
+
+  # Find the start and end lines of the routes array
+  START_LINE=$(grep -n '"routes"' wrangler.jsonc | cut -d: -f1)
+  if [ -n "$START_LINE" ]; then
+    # Find the closing bracket of the routes array (look for ], after routes)
+    END_LINE=$(tail -n +$START_LINE wrangler.jsonc | grep -n '^[[:space:]]*],' | head -1 | cut -d: -f1)
+    END_LINE=$((START_LINE + END_LINE - 1))
     
-    # Replace the routes section
-    sed -i.bak -e "${START_LINE},${END_LINE}c\\
-$NEW_ROUTES" wrangler.jsonc
+    # Create new wrangler.jsonc
+    head -n $((START_LINE - 1)) wrangler.jsonc > wrangler.jsonc.new
+    cat /tmp/new_routes.json >> wrangler.jsonc.new
+    tail -n +$((END_LINE + 1)) wrangler.jsonc >> wrangler.jsonc.new
+    
+    # Replace the original file
+    mv wrangler.jsonc.new wrangler.jsonc
+    
+    # Clean up temp file
+    rm -f /tmp/new_routes.json
   fi
 
   # Optional: clean up backup
