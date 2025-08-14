@@ -5,17 +5,31 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   useEffect(() => {
-    console.log("[Home] mounted; isMenuOpen:", isMenuOpen);
+    console.log("[Home] mounted");
     // Lazy load video after page content loads
     const loadVideo = () => {
-      const video = document.querySelector('video[loading="lazy"]') as HTMLVideoElement;
+      const video = document.querySelector('video.lazy-video') as HTMLVideoElement;
       if (video) {
         // Small delay to ensure page content loads first
         setTimeout(() => {
+          // Ensure autoplay-friendly settings for mobile
+          video.muted = true;
+          video.playsInline = true;
+          video.autoplay = true;
+
           video.load();
-          video.addEventListener('loadeddata', () => {
+          const tryPlay = () => {
             video.classList.add('loaded');
-          });
+            // Attempt to play in case some devices require an explicit call
+            const playPromise = video.play();
+            if (playPromise && typeof playPromise.then === 'function') {
+              playPromise.catch(() => {
+                // In case autoplay is blocked, leave it silent and user will start it
+              });
+            }
+          };
+          video.addEventListener('loadeddata', tryPlay, { once: true });
+          video.addEventListener('canplay', tryPlay, { once: true });
         }, 500);
       }
     };
@@ -42,8 +56,8 @@ export default function Home() {
             className="navbar-logo"
           />
         </div>
-        <div className="navbar-container">
-          <div className="block md:hidden absolute right-4">
+        <div className="navbar-container relative">
+          <div className="block md:hidden absolute right-4 top-1/2 -translate-y-1/2">
             <button
               aria-label="Toggle navigation menu"
               onClick={() => {
@@ -71,14 +85,14 @@ export default function Home() {
               <Link href="/what-to-expect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
                 What to Expect
               </Link>
-              {/* Messages link hidden until ready */}
-              <Link href="/donations" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Donations
-              </Link>
               <Link href="/connect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
                 Connect
               </Link>
             </div>
+          </div>
+          {/* Current page label on mobile */}
+          <div className="md:hidden col-start-2 justify-self-center font-semibold text-church-blue">
+            Home
           </div>
           {/* Mobile menu button (duplicate removed) */}
           <div className="hidden md:block"></div>
@@ -89,24 +103,23 @@ export default function Home() {
           <Link href="/" className="">Home</Link>
           <Link href="/beliefs" className="">Beliefs</Link>
           <Link href="/what-to-expect" className="">What to Expect</Link>
-          <Link href="/donations" className="">Donations</Link>
+          {/* Donations link hidden until ready */}
           <Link href="/connect" className="">Connect</Link>
         </div>
       </div>
 
       {/* Hero Section with Video Background */}
-      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[calc(95svh-80px)] flex items-center justify-center overflow-hidden">
         {/* Video Background */}
         <video 
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover lazy-video video-zoom-slight"
           autoPlay 
           muted 
           loop 
           playsInline
-          loading="lazy"
-          preload="none"
+          preload="metadata"
         >
-          <source src="/videos/test.webm" type="video/webm" />
+          <source src="/videos/church_website_video.webm" type="video/webm" />
           {/* Fallback for browsers that don't support WebM */}
           Your browser does not support the video tag.
         </video>
@@ -210,17 +223,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-church-blue mb-16">Connect With Us</h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Link href="/what-to-expect" className="group bg-gray-50 hover:bg-church-blue p-8 rounded-lg text-center transition-colors duration-300">
-              <div className="text-church-gold group-hover:text-church-gold mb-4">
-                <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-church-blue group-hover:text-white mb-3">First Time Visiting?</h3>
-              <p className="text-gray-600 group-hover:text-gray-200">Learn what to expect when you visit us for worship</p>
-            </Link>
-
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Link href="/beliefs" className="group bg-gray-50 hover:bg-church-blue p-8 rounded-lg text-center transition-colors duration-300">
               <div className="text-church-gold group-hover:text-church-gold mb-4">
                 <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -231,15 +234,17 @@ export default function Home() {
               <p className="text-gray-600 group-hover:text-gray-200">Explore our doctrinal beliefs and confessions</p>
             </Link>
 
-            <Link href="/donations" className="group bg-gray-50 hover:bg-church-blue p-8 rounded-lg text-center transition-colors duration-300">
+            <Link href="/what-to-expect" className="group bg-gray-50 hover:bg-church-blue p-8 rounded-lg text-center transition-colors duration-300">
               <div className="text-church-gold group-hover:text-church-gold mb-4">
                 <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-church-blue group-hover:text-white mb-3">Support Our Ministry</h3>
-              <p className="text-gray-600 group-hover:text-gray-200">Learn about giving and supporting our mission</p>
+              <h3 className="text-xl font-bold text-church-blue group-hover:text-white mb-3">First Time Visiting?</h3>
+              <p className="text-gray-600 group-hover:text-gray-200">Learn what to expect when you visit us for worship</p>
             </Link>
+
+            {/* Donations quick link removed */}
 
             <Link href="/connect" className="group bg-gray-50 hover:bg-church-blue p-8 rounded-lg text-center transition-colors duration-300">
               <div className="text-church-gold group-hover:text-church-gold mb-4">
@@ -257,7 +262,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-church-blue text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start">
             <div>
               <h3 className="text-xl font-bold mb-4">The Church at Murray State</h3>
               <p className="text-gray-300">
@@ -279,9 +284,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="border-t border-church-blue mt-8 pt-8 text-center text-gray-300">
-            <p>&copy; 2024 The Church at Murray State. All rights reserved.</p>
-          </div>
+          {/* Copyright removed */}
         </div>
       </footer>
     </div>

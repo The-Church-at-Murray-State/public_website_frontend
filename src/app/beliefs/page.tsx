@@ -17,8 +17,8 @@ export default function Beliefs() {
             />
           </Link>
         </div>
-        <div className="navbar-container">
-          <div className="block md:hidden absolute right-4">
+        <div className="navbar-container relative">
+          <div className="block md:hidden absolute right-4 top-1/2 -translate-y-1/2">
             <button
               aria-label="Toggle navigation menu"
               onClick={() => {
@@ -46,14 +46,15 @@ export default function Beliefs() {
               <Link href="/what-to-expect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
                 What to Expect
               </Link>
-              {/* Messages link hidden until ready */}
-              <Link href="/donations" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Donations
-              </Link>
+              {/* Donations link hidden until ready */}
               <Link href="/connect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
                 Connect
               </Link>
             </div>
+          </div>
+          {/* Current page label on mobile */}
+          <div className="md:hidden col-start-2 justify-self-center font-semibold text-church-blue">
+            Beliefs
           </div>
           <div className="hidden md:block"></div>
         </div>
@@ -63,7 +64,7 @@ export default function Beliefs() {
           <Link href="/" className="">Home</Link>
           <Link href="/beliefs" className="">Beliefs</Link>
           <Link href="/what-to-expect" className="">What to Expect</Link>
-          <Link href="/donations" className="">Donations</Link>
+            {/* Donations link hidden until ready */}
           <Link href="/connect" className="">Connect</Link>
         </div>
       </div>
@@ -216,22 +217,7 @@ export default function Beliefs() {
             </div>
           </div>
 
-          {/* Statement of Faith */}
-          <div className="bg-blue-800 text-white p-8 rounded-lg mb-16">
-            <h2 className="text-3xl font-bold mb-6 text-center">Our Statement of Faith</h2>
-            <p className="text-blue-200 text-center mb-6">
-              Our detailed statement of faith aligns with historic Reformed theology and evangelical doctrine.
-            </p>
-            <div className="text-center">
-              <div className="bg-black/20 p-6 rounded-lg">
-                <p className="text-amber-400 text-lg font-semibold mb-2">📖 Detailed Statement Coming Soon</p>
-                <p className="text-blue-200">
-                  We are currently finalizing our comprehensive statement of faith and confessions. 
-                  This will include our positions on key doctrinal matters and our commitment to biblical truth.
-                </p>
-              </div>
-            </div>
-          </div>
+          {/* Statement of Faith placeholder removed */}
 
           {/* Theological Commitments */}
           <div>
@@ -290,7 +276,7 @@ export default function Beliefs() {
       {/* Footer */}
       <footer className="bg-church-blue text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start">
             <div>
               <h3 className="text-xl font-bold mb-4">The Church at Murray State</h3>
               <p className="text-gray-300">
@@ -312,9 +298,7 @@ export default function Beliefs() {
             </div>
           </div>
           
-          <div className="border-t border-church-blue mt-8 pt-8 text-center text-gray-300">
-            <p>&copy; 2024 The Church at Murray State. All rights reserved.</p>
-          </div>
+          {/* Copyright removed */}
         </div>
       </footer>
     </div>

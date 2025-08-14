@@ -46,10 +46,7 @@ export default function Donations() {
               <Link href="/what-to-expect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
                 What to Expect
               </Link>
-              {/* Messages link hidden until ready */}
-              <Link href="/donations" className="text-church-blue hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Donations
-              </Link>
+              {/* Donations link hidden until ready */}
               <Link href="/connect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
                 Connect
               </Link>
@@ -63,7 +60,7 @@ export default function Donations() {
           <Link href="/" className="">Home</Link>
           <Link href="/beliefs" className="">Beliefs</Link>
           <Link href="/what-to-expect" className="">What to Expect</Link>
-          <Link href="/donations" className="">Donations</Link>
+            {/* Donations link hidden until ready */}
           <Link href="/connect" className="">Connect</Link>
         </div>
       </div>
@@ -266,7 +263,7 @@ export default function Donations() {
       {/* Footer */}
       <footer className="bg-church-blue text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start">
             <div>
               <h3 className="text-xl font-bold mb-4">The Church at Murray State</h3>
               <p className="text-gray-300">
@@ -288,9 +285,7 @@ export default function Donations() {
             </div>
           </div>
           
-          <div className="border-t border-church-blue mt-8 pt-8 text-center text-gray-300">
-            <p>&copy; 2024 The Church at Murray State. All rights reserved.</p>
-          </div>
+          {/* Copyright removed */}
         </div>
       </footer>
     </div>

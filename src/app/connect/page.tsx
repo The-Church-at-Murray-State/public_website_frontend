@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function Connect() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="enhanced-navbar relative z-50">
         <div className="navbar-logo-absolute">
@@ -17,8 +17,8 @@ export default function Connect() {
             />
           </Link>
         </div>
-        <div className="navbar-container">
-          <div className="block md:hidden absolute right-4">
+        <div className="navbar-container relative">
+          <div className="block md:hidden absolute right-4 top-1/2 -translate-y-1/2">
             <button
               aria-label="Toggle navigation menu"
               onClick={() => {
@@ -46,14 +46,15 @@ export default function Connect() {
               <Link href="/what-to-expect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
                 What to Expect
               </Link>
-              {/* Messages link hidden until ready */}
-              <Link href="/donations" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Donations
-              </Link>
+              {/* Donations link hidden until ready */}
               <Link href="/connect" className="text-church-blue hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
                 Connect
               </Link>
             </div>
+          </div>
+          {/* Current page label on mobile */}
+          <div className="md:hidden col-start-2 justify-self-center font-semibold text-church-blue">
+            Connect
           </div>
           <div className="hidden md:block"></div>
         </div>
@@ -63,7 +64,7 @@ export default function Connect() {
           <Link href="/" className="">Home</Link>
           <Link href="/beliefs" className="">Beliefs</Link>
           <Link href="/what-to-expect" className="">What to Expect</Link>
-          <Link href="/donations" className="">Donations</Link>
+            {/* Donations link hidden until ready */}
           <Link href="/connect" className="">Connect</Link>
         </div>
       </div>
@@ -273,7 +274,7 @@ export default function Connect() {
       {/* Footer */}
       <footer className="bg-church-blue text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start">
             <div>
               <h3 className="text-xl font-bold mb-4">The Church at Murray State</h3>
               <p className="text-gray-300">
@@ -295,9 +296,7 @@ export default function Connect() {
             </div>
           </div>
           
-          <div className="border-t border-church-blue mt-8 pt-8 text-center text-gray-300">
-            <p>&copy; 2024 The Church at Murray State. All rights reserved.</p>
-          </div>
+          {/* Copyright removed */}
         </div>
       </footer>
     </div>

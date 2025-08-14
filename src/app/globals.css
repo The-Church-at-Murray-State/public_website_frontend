@@ -1,3 +1,7 @@
+/* Slight video zoom utility */
+.video-zoom-slight {
+  transform: scale(1.12);
+}
 @import "tailwindcss";
 
 :root {
@@ -153,12 +157,12 @@ html {
 }
 
 /* Lazy loading video styles */
-video[loading="lazy"] {
+.lazy-video {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
 
-video[loading="lazy"].loaded {
+.lazy-video.loaded {
   opacity: 1;
 }
 
