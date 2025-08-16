@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Messages() {
   return (
@@ -7,10 +8,12 @@ export default function Messages() {
       <nav className="enhanced-navbar relative z-50">
         <div className="navbar-logo-absolute">
           <Link href="/">
-            <img 
+            <Image 
               src="/logos/MCF Church Logo1.jpg" 
               alt="The Church at Murray State" 
               className="navbar-logo"
+              width={100}
+              height={100}
             />
           </Link>
         </div>
