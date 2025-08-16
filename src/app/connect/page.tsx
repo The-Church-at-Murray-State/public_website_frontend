@@ -150,10 +150,7 @@ export default function Connect() {
                     </div>
                     <div className="min-w-0 text-left break-words">
                       <h3 className="text-xl font-bold text-church-blue mb-2">Phone</h3>
-                      <p className="text-church-gray">
-                        (270) XXX-XXXX<br />
-                        <span className="text-sm text-gray-500">(Phone number coming soon)</span>
-                      </p>
+                      <p className="text-church-gray">(270) 753-7356</p>
                     </div>
                   </div>
                 </div>
@@ -240,8 +237,8 @@ export default function Connect() {
                   Visit MCF Website
                 </a>
                 <p className="text-blue-200 text-sm text-center">
-                  Questions about college ministry? Contact Pastor Jamie at<br />
-                  <span className="font-semibold">pastor@thechurchatmurraystate.com</span>
+                  Questions about college ministry? Email us at<br />
+                  <span className="font-semibold">contact@thechurchatmurraystate.com</span>
                 </p>
               </div>
             </div>
@@ -273,10 +270,7 @@ export default function Connect() {
               <p className="text-church-gray">Not at all! We encourage students to be involved in both. Think of Sunday mornings as your spiritual &quot;home base&quot; and MCF activities as your college community throughout the week.</p>
             </div>
 
-            <div className="bg-white border border-gray-200 p-6 rounded-lg">
-              <h3 className="text-lg font-bold text-church-blue mb-2">What if I have more questions about faith or the Bible?</h3>
-              <p className="text-church-gray">Pastor Jamie loves answering questions about faith, the Bible, and Christian living. Don&apos;t hesitate to reach out via email or approach him after service. No question is too big or too small!</p>
-            </div>
+
           </div>
         </div>
       </section>

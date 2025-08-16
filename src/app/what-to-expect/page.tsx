@@ -94,7 +94,7 @@ export default function WhatToExpect() {
                     <strong>Sunday Worship:</strong> 11:00 AM
                   </p>
                   <p className="text-gray-600">
-                    We recommend arriving 10-15 minutes early to find parking and get settled.
+                    We recommend arriving 10-15 minutes early to find parking and get settled, but don't hesitate to come on in if you are running behind.
                   </p>
                 </div>
 
@@ -111,19 +111,13 @@ export default function WhatToExpect() {
                     Murray, KY 42071
                   </p>
                   <p className="text-gray-600">
-                    Free parking is available on-site and on nearby streets.
+                    Free parking is available on-site and on nearby streets. Our building has "MCF" on the front, but the main entrance to the sanctuary is on the left side of the building if you are facing from the front. Pulling into the driveway of the building to the right of ours wraps around the back of our building, where you can park in the grass or on the gravel.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-amber-50 border-l-4 border-amber-600 p-6 rounded-lg">
-              <h3 className="text-xl font-bold text-amber-800 mb-3">What to Wear</h3>
-              <p className="text-amber-700">
-                Come as you are! You&apos;ll see people in everything from jeans to business casual. 
-                We care more about your heart than your clothes.
-              </p>
-            </div>
+            {/* Moved What to Wear to Common Questions per request */}
           </div>
 
           {/* During the Service */}
@@ -150,10 +144,6 @@ export default function WhatToExpect() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-church-blue mb-2">Worship Through Song (11:00 AM)</h3>
-                  <p className="text-church-gray">
-                    We&apos;ll sing together for about 20-25 minutes. Lyrics are displayed on screens, 
-                    so don&apos;t worry about knowing the songs. Participate as much or as little as you&apos;re comfortable with.
-                  </p>
                 </div>
               </div>
 
@@ -162,11 +152,7 @@ export default function WhatToExpect() {
                   <span className="text-xl font-bold">3</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-church-blue mb-2">Prayer & Scripture Reading (11:25 AM)</h3>
-                  <p className="text-church-gray">
-                    A time of prayer for our church, community, and world, followed by the reading 
-                    of God&apos;s Word for the day.
-                  </p>
+                  <h3 className="text-xl font-bold text-church-blue mb-2">Prayer & Scripture Reading (11:15 AM)</h3>
                 </div>
               </div>
 
@@ -175,11 +161,7 @@ export default function WhatToExpect() {
                   <span className="text-xl font-bold">4</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-church-blue mb-2">Biblical Teaching (11:30 AM)</h3>
-                  <p className="text-church-gray">
-                    Our pastor will teach from the Bible for about 30-35 minutes. We believe God&apos;s 
-                    Word is relevant and life-changing, and we aim to explain it clearly and practically.
-                  </p>
+                  <h3 className="text-xl font-bold text-church-blue mb-2">Biblical Teaching (11:20 AM)</h3>
                 </div>
               </div>
 
@@ -188,10 +170,8 @@ export default function WhatToExpect() {
                   <span className="text-xl font-bold">5</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-church-blue mb-2">Response & Closing (12:05 PM)</h3>
-                  <p className="text-church-gray">
-                    We&apos;ll close with a song of response and prayer. The service typically ends by 12:15 PM.
-                  </p>
+                  <h3 className="text-xl font-bold text-church-blue mb-2">Closing (11:50 AM)</h3>
+                  <p className="text-church-gray">We will close with a song and prayer. The service should end around 12:00 PM.</p>
                 </div>
               </div>
             </div>
@@ -220,18 +200,12 @@ export default function WhatToExpect() {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-gray-50 p-6 rounded-lg">
                 <h3 className="text-xl font-bold text-church-blue mb-3">Children in Service</h3>
-                <p className="text-church-gray">
-                  Children of all ages are welcome in our worship service. We understand that little ones 
-                  can be active, and we&apos;re a family-friendly church.
-                </p>
+                <p className="text-church-gray">Children of all ages are welcome in our worship service.</p>
               </div>
 
               <div className="bg-gray-50 p-6 rounded-lg">
                 <h3 className="text-xl font-bold text-church-blue mb-3">Children&apos;s Ministry</h3>
-                <p className="text-church-gray">
-                  We&apos;re working on developing age-appropriate children&apos;s programming. 
-                  For now, we welcome families to worship together.
-                </p>
+                <p className="text-church-gray">We have options for young children, and they are more than welcome in the service as well. Although we do not have a separate youth program at this time, they are welcome in our main service.</p>
               </div>
             </div>
           </div>
@@ -242,19 +216,20 @@ export default function WhatToExpect() {
             
             <div className="space-y-6">
               <div className="bg-white border border-gray-200 p-6 rounded-lg">
+                <h3 className="text-lg font-bold text-church-blue mb-2">What should I wear?</h3>
+                <p className="text-church-gray">Come as you are. You&apos;ll see people in everything from jeans to business casual.</p>
+              </div>
+              <div className="bg-white border border-gray-200 p-6 rounded-lg">
                 <h3 className="text-lg font-bold text-church-blue mb-2">Will I be asked to stand up or introduce myself?</h3>
                 <p className="text-church-gray">No! We want you to feel comfortable. You&apos;re welcome to participate as much or as little as you&apos;d like.</p>
               </div>
 
               <div className="bg-white border border-gray-200 p-6 rounded-lg">
                 <h3 className="text-lg font-bold text-church-blue mb-2">Will someone ask me for money?</h3>
-                <p className="text-church-gray">We do take an offering during the service, but it&apos;s only for members and regular attenders. As a visitor, please don&apos;t feel any obligation to give.</p>
+                <p className="text-church-gray">Although we accept donations after the service, this is done discreetly and no donations in any amount are required or expected.</p>
               </div>
 
-              <div className="bg-white border border-gray-200 p-6 rounded-lg">
-                <h3 className="text-lg font-bold text-church-blue mb-2">What if I have more questions?</h3>
-                <p className="text-church-gray">We&apos;d love to answer them! Feel free to ask anyone after the service, or contact us anytime.</p>
-              </div>
+              
             </div>
           </div>
 
