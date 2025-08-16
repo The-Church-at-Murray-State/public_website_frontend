@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function WhatToExpect() {
@@ -10,10 +11,12 @@ export default function WhatToExpect() {
       <nav className="enhanced-navbar relative z-50">
         <div className="navbar-logo-absolute">
           <Link href="/">
-            <img 
+            <Image 
               src="/logos/MCF Church Logo1.jpg" 
               alt="The Church at Murray State" 
               className="navbar-logo"
+              width={100}
+              height={100}
             />
           </Link>
         </div>
@@ -94,7 +97,7 @@ export default function WhatToExpect() {
                     <strong>Sunday Worship:</strong> 11:00 AM
                   </p>
                   <p className="text-gray-600">
-                    We recommend arriving 10-15 minutes early to find parking and get settled, but don't hesitate to come on in if you are running behind.
+                    We recommend arriving 10-15 minutes early to find parking and get settled, but don&apos;t hesitate to come on in if you are running behind.
                   </p>
                 </div>
 
@@ -111,7 +114,7 @@ export default function WhatToExpect() {
                     Murray, KY 42071
                   </p>
                   <p className="text-gray-600">
-                    Free parking is available on-site and on nearby streets. Our building has "MCF" on the front, but the main entrance to the sanctuary is on the left side of the building if you are facing from the front. Pulling into the driveway of the building to the right of ours wraps around the back of our building, where you can park in the grass or on the gravel.
+                    Free parking is available on-site and on nearby streets. Our building has &quot;MCF&quot; on the front, but the main entrance to the sanctuary is on the left side of the building if you are facing from the front. Pulling into the driveway of the building to the right of ours wraps around the back of our building, where you can park in the grass or on the gravel.
                   </p>
                 </div>
               </div>
