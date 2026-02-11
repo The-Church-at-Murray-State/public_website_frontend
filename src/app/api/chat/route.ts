@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 type ChatMessagePair = [string, string];
-
+#
 type ChatRequestBody = {
   message_pairs?: ChatMessagePair[];
 };
