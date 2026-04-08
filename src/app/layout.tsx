@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "The Church at Murray State",
+  title: "Ekklesia Nondenominational Church",
   description: "A gospel-centered church serving the Murray State University community and the city of Murray, Kentucky.",
   icons: {
     icon: "/logos/MCF Church Logo1.jpg",
