@@ -13,7 +13,7 @@ export default function WhatToExpect() {
           <Link href="/">
             <Image 
               src="/logos/MCF Church Logo1.jpg" 
-              alt="The Church at Murray State" 
+              alt="Ekklesia Nondenominational Church" 
               className="navbar-logo"
               width={100}
               height={100}
@@ -43,9 +43,11 @@ export default function WhatToExpect() {
               <Link href="/what-to-expect" className="text-church-blue hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
                 What to Expect
               </Link>
-              {/* Donations link hidden until ready */}
               <Link href="/connect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
                 Connect
+              </Link>
+              <Link href="/donations" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                Donate
               </Link>
             </div>
           </div>
@@ -61,8 +63,8 @@ export default function WhatToExpect() {
           <Link href="/" className="">Home</Link>
           <Link href="/beliefs" className="">Beliefs</Link>
           <Link href="/what-to-expect" className="">What to Expect</Link>
-            {/* Donations link hidden until ready */}
           <Link href="/connect" className="">Connect</Link>
+          <Link href="/donations" className="">Donate</Link>
         </div>
       </div>
 
@@ -174,7 +176,7 @@ export default function WhatToExpect() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-church-blue mb-2">Closing (11:50 AM)</h3>
-                  <p className="text-church-gray">We will close with a song and prayer. The service should end around 12:00 PM.</p>
+                  <p className="text-church-gray">We will close with prayer. The service should end around 12:00 PM.</p>
                 </div>
               </div>
             </div>
@@ -187,8 +189,11 @@ export default function WhatToExpect() {
             <div className="bg-church-blue text-white p-8 rounded-lg">
               <h3 className="text-2xl font-bold mb-4">Fellowship & Connection</h3>
               <p className="text-blue-200 mb-4">
-                We&apos;d love to meet you! Many people stick around after the service to chat and connect. 
+                We&apos;d love to meet you! Many people stick around after the service to chat and connect.
                 Our pastors and members would be delighted to answer any questions you might have.
+              </p>
+              <p className="text-blue-200 mb-4">
+                We also serve lunch immediately after the service — everyone is welcome to stay and share a meal together!
               </p>
               <p className="text-blue-200">
                 Don&apos;t feel obligated to stay if you need to leave, but if you have time, we&apos;d love to get to know you better.
@@ -207,8 +212,8 @@ export default function WhatToExpect() {
               </div>
 
               <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-xl font-bold text-church-blue mb-3">Children&apos;s Ministry</h3>
-                <p className="text-church-gray">We have options for young children, and they are more than welcome in the service as well. Although we do not have a separate youth program at this time, they are welcome in our main service.</p>
+                <h3 className="text-xl font-bold text-church-blue mb-3">Sunday School</h3>
+                <p className="text-church-gray">Sunday school for children runs concurrently during the worship service, so kids can learn in an age-appropriate setting while parents enjoy the main service.</p>
               </div>
             </div>
           </div>
@@ -260,7 +265,7 @@ export default function WhatToExpect() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start">
             <div>
-              <h3 className="text-xl font-bold mb-4">The Church at Murray State</h3>
+              <h3 className="text-xl font-bold mb-4">Ekklesia Nondenominational Church</h3>
               <p className="text-gray-300">
                 A gospel-centered community serving Murray State University and the Murray community.
               </p>

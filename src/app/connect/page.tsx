@@ -13,7 +13,7 @@ export default function Connect() {
           <Link href="/">
             <Image 
               src="/logos/MCF Church Logo1.jpg" 
-              alt="The Church at Murray State" 
+              alt="Ekklesia Nondenominational Church" 
               className="navbar-logo"
               width={100}
               height={100}
@@ -49,9 +49,11 @@ export default function Connect() {
               <Link href="/what-to-expect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
                 What to Expect
               </Link>
-              {/* Donations link hidden until ready */}
               <Link href="/connect" className="text-church-blue hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
                 Connect
+              </Link>
+              <Link href="/donations" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                Donate
               </Link>
             </div>
           </div>
@@ -67,8 +69,8 @@ export default function Connect() {
           <Link href="/" className="">Home</Link>
           <Link href="/beliefs" className="">Beliefs</Link>
           <Link href="/what-to-expect" className="">What to Expect</Link>
-            {/* Donations link hidden until ready */}
           <Link href="/connect" className="">Connect</Link>
+          <Link href="/donations" className="">Donate</Link>
         </div>
       </div>
 
@@ -77,7 +79,7 @@ export default function Connect() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Connect With Us</h1>
           <p className="text-xl md:text-2xl text-blue-200 max-w-3xl mx-auto">
-            Join our community and discover how you can be part of what God is doing at Murray State
+            Join our community and discover how you can be part of what God is doing in Murray
           </p>
         </div>
       </section>
@@ -121,9 +123,9 @@ export default function Connect() {
                     <div className="min-w-0 text-left break-words">
                       <h3 className="text-xl font-bold text-church-blue mb-2">Email</h3>
                       <ul className="text-church-gray space-y-2 list-disc pl-5">
-                        <li><span className="font-semibold">General Inquiries:</span> contact@thechurchatmurraystate.com</li>
-                        <li><span className="font-semibold">Pastor Jamie (Spiritual Concerns):</span> pastor@thechurchatmurraystate.com</li>
-                        <li><span className="font-semibold">Website/Tech Issues:</span> admin@thechurchatmurraystate.com</li>
+                        <li><span className="font-semibold">General Inquiries:</span> contact@encmurray.com</li>
+                        <li><span className="font-semibold">Pastor Jamie (Spiritual Concerns):</span> pastor@encmurray.com</li>
+                        <li><span className="font-semibold">Website/Tech Issues:</span> admin@encmurray.com</li>
                       </ul>
                     </div>
                   </div>
@@ -170,7 +172,7 @@ export default function Connect() {
                   For spiritual concerns, pastoral care, or to schedule a meeting, please contact Pastor Jamie directly at:
                 </p>
                 <p className="text-church-gold font-semibold text-lg">
-                  pastor@thechurchatmurraystate.com
+                  pastor@encmurray.com
                 </p>
               </div>
             </div>
@@ -241,7 +243,7 @@ export default function Connect() {
                 </a>
                 <p className="text-blue-200 text-sm text-center">
                   Questions about college ministry? Email us at<br />
-                  <span className="font-semibold">contact@thechurchatmurraystate.com</span>
+                  <span className="font-semibold">contact@encmurray.com</span>
                 </p>
               </div>
             </div>
@@ -282,7 +284,7 @@ export default function Connect() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start">
             <div>
-              <h3 className="text-xl font-bold mb-4">The Church at Murray State</h3>
+              <h3 className="text-xl font-bold mb-4">Ekklesia Nondenominational Church</h3>
               <p className="text-gray-300">
                 A gospel-centered community serving Murray State University and the Murray community.
               </p>

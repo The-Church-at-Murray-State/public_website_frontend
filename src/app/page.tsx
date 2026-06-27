@@ -53,7 +53,7 @@ export default function Home() {
         <div className="navbar-logo-absolute">
           <Image 
             src="/logos/MCF Church Logo1.jpg" 
-            alt="The Church at Murray State" 
+            alt="Ekklesia Nondenominational Church" 
             className="navbar-logo"
             width={100}
             height={100}
@@ -91,6 +91,9 @@ export default function Home() {
               <Link href="/connect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
                 Connect
               </Link>
+              <Link href="/donations" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                Donate
+              </Link>
             </div>
           </div>
           {/* Current page label on mobile */}
@@ -106,8 +109,8 @@ export default function Home() {
           <Link href="/" className="">Home</Link>
           <Link href="/beliefs" className="">Beliefs</Link>
           <Link href="/what-to-expect" className="">What to Expect</Link>
-          {/* Donations link hidden until ready */}
           <Link href="/connect" className="">Connect</Link>
+          <Link href="/donations" className="">Donate</Link>
         </div>
       </div>
 
@@ -134,10 +137,10 @@ export default function Home() {
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             Welcome to<br />
-            <span className="text-church-gold">The Church at Murray State</span>
+            <span className="text-church-gold">Ekklesia Nondenominational Church</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto">
-            A gospel-centered community serving Murray State University and the Murray community
+            A gospel-centered community serving Murray State University and the Murray community.
           </p>
           
           {/* Action Buttons */}
@@ -213,7 +216,7 @@ export default function Home() {
                 worship, biblical teaching, authentic community, and missional living.
               </p>
               <p className="text-lg leading-relaxed">
-                Whether you&apos;re a Murray State student, a longtime Murray resident, or just visiting, 
+                Whether you&apos;re a Murray State student, a longtime Murray resident, or just visiting,
                 we&apos;d love to welcome you into our community.
               </p>
             </div>
@@ -247,8 +250,6 @@ export default function Home() {
               <p className="text-gray-600 group-hover:text-gray-200">Learn what to expect when you visit us for worship</p>
             </Link>
 
-            {/* Donations quick link removed */}
-
             <Link href="/connect" className="group bg-gray-50 hover:bg-church-blue p-8 rounded-lg text-center transition-colors duration-300">
               <div className="text-church-gold group-hover:text-church-gold mb-4">
                 <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -267,7 +268,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start">
             <div>
-              <h3 className="text-xl font-bold mb-4">The Church at Murray State</h3>
+              <h3 className="text-xl font-bold mb-4">Ekklesia Nondenominational Church</h3>
               <p className="text-gray-300">
                 A gospel-centered community serving Murray State University and the Murray community.
               </p>
