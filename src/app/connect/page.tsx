@@ -105,7 +105,7 @@ export default function Connect() {
                     <div className="min-w-0 text-left break-words">
                       <h3 className="text-xl font-bold text-church-blue mb-2">Address</h3>
                       <p className="text-church-gray">
-                        1508 Chestnut St.<br />
+                        617 S 9th St (Gymnasium)<br />
                         Murray, KY 42071
                       </p>
                     </div>
@@ -253,9 +253,6 @@ export default function Connect() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-church-blue mb-8 text-center">Got Questions?</h2>
-          <p className="text-xl text-gray-600 mb-12 text-center">
-            Here are some common questions we hear from students and visitors:
-          </p>
           
           <div className="space-y-6">
             <div className="bg-white border border-gray-200 p-6 rounded-lg">
@@ -299,7 +296,7 @@ export default function Connect() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Location</h4>
               <p className="text-gray-300">
-                1508 Chestnut St.<br />
+                617 S 9th St (Gymnasium)<br />
                 Murray, KY 42071
               </p>
             </div>

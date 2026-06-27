@@ -199,7 +199,7 @@ export default function Home() {
                   Location
                 </h3>
                 <p className="text-lg text-gray-700">
-                  1508 Chestnut St.<br />
+                  617 S 9th St (Gymnasium)<br />
                   Murray, KY 42071
                 </p>
               </div>
@@ -281,7 +281,7 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Location</h4>
               <p className="text-gray-300">
-                1508 Chestnut St.<br />
+                617 S 9th St (Gymnasium)<br />
                 Murray, KY 42071
               </p>
             </div>
