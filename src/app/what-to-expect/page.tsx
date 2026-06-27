@@ -112,11 +112,11 @@ export default function WhatToExpect() {
                     Location & Parking
                   </h3>
                   <p className="text-church-gray mb-4">
-                    1508 Chestnut St.<br />
+                    617 S 9th St (Gymnasium)<br />
                     Murray, KY 42071
                   </p>
                   <p className="text-gray-600">
-                    Free parking is available on-site and on nearby streets. Our building has &quot;MCF&quot; on the front, but the main entrance to the sanctuary is on the left side of the building if you are facing from the front. Pulling into the driveway of the building to the right of ours wraps around the back of our building, where you can park in the grass or on the gravel.
+                    We are located in the Gymnasium behind Grace Baptist Church. The primary entry is located between the two buildings. Free parking is available on-site and on nearby streets.
                   </p>
                 </div>
               </div>
@@ -279,7 +279,7 @@ export default function WhatToExpect() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Location</h4>
               <p className="text-gray-300">
-                1508 Chestnut St.<br />
+                617 S 9th St (Gymnasium)<br />
                 Murray, KY 42071
               </p>
             </div>
