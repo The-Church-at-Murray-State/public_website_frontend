@@ -10,7 +10,7 @@ export default function Messages() {
           <Link href="/">
             <Image 
               src="/logos/MCF Church Logo1.jpg" 
-              alt="The Church at Murray State" 
+              alt="Ekklesia Nondenominational Church" 
               className="navbar-logo"
               width={100}
               height={100}
@@ -32,9 +32,11 @@ export default function Messages() {
               <Link href="/messages" className="text-church-blue hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
                 Messages
               </Link>
-              {/* Donations link hidden until ready */}
               <Link href="/connect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
                 Connect
+              </Link>
+              <Link href="/donations" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
+                Donate
               </Link>
             </div>
           </div>
@@ -218,7 +220,7 @@ export default function Messages() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start">
             <div>
-              <h3 className="text-xl font-bold mb-4">The Church at Murray State</h3>
+              <h3 className="text-xl font-bold mb-4">Ekklesia Nondenominational Church</h3>
               <p className="text-gray-300">
                 A gospel-centered community serving Murray State University and the Murray community.
               </p>
