@@ -19,7 +19,7 @@ export const CHURCH_ADDRESS = {
 } as const;
 
 export const LOGO = {
-  src: "/logos/MCF Church Logo1.jpg",
+  src: "/logos/ekklesia-logo-trimmed.jpg",
   alt: CHURCH_NAME,
 } as const;
 
