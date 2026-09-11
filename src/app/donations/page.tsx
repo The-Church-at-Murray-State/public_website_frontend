@@ -1,72 +1,11 @@
-"use client";
 import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function Donations() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className="min-h-screen bg-white">
-      <nav className="enhanced-navbar relative z-50">
-        <div className="navbar-logo-absolute">
-          <Link href="/">
-            <Image
-              src="/logos/MCF Church Logo1.jpg"
-              alt="Ekklesia Nondenominational Church"
-              className="navbar-logo"
-              width={100}
-              height={100}
-            />
-          </Link>
-        </div>
-        <div className="navbar-container relative">
-          <div className="block md:hidden absolute right-4 top-1/2 -translate-y-1/2">
-            <button
-              aria-label="Toggle navigation menu"
-              onClick={() => {
-                setIsMenuOpen((o) => !o);
-              }}
-              className="cursor-pointer text-church-gray hover:text-church-gold"
-            >
-              <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-          <div className="navbar-links-section hidden md:block">
-            <div className="navbar-links">
-              <Link href="/" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Home
-              </Link>
-              <Link href="/beliefs" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Beliefs
-              </Link>
-              <Link href="/what-to-expect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                What to Expect
-              </Link>
-              <Link href="/connect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Connect
-              </Link>
-              <Link href="/donations" className="text-church-blue hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Donate
-              </Link>
-            </div>
-          </div>
-          <div className="md:hidden col-start-2 justify-self-center font-semibold text-church-blue">
-            Donate
-          </div>
-          <div className="hidden md:block"></div>
-        </div>
-      </nav>
-      <div className={`mobile-menu w-full ${isMenuOpen ? "block" : "hidden"} md:hidden`}>
-        <div className="px-4 py-3">
-          <Link href="/" className="">Home</Link>
-          <Link href="/beliefs" className="">Beliefs</Link>
-          <Link href="/what-to-expect" className="">What to Expect</Link>
-          <Link href="/connect" className="">Connect</Link>
-          <Link href="/donations" className="">Donate</Link>
-        </div>
-      </div>
+      <Navbar />
 
       <section className="bg-church-blue text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -130,19 +69,11 @@ export default function Donations() {
           </div>
 
           <div className="mt-16 bg-church-blue text-white p-8 rounded-lg text-center">
-            <h3 className="text-2xl font-bold mb-4">Give In Person</h3>
-            <p className="text-blue-200 text-lg">
-              You can also give during our Sunday worship service. Cash and checks
-              made out to &quot;Ekklesia Nondenominational Church&quot; are accepted.
-            </p>
-          </div>
-
-          <div className="mt-12 bg-gray-50 p-8 rounded-lg text-center">
-            <p className="text-gray-600 italic text-lg leading-relaxed max-w-2xl mx-auto">
+            <p className="text-blue-200 italic text-lg leading-relaxed max-w-2xl mx-auto">
               &quot;Each of you should give what you have decided in your heart to give,
               not reluctantly or under compulsion, for God loves a cheerful giver.&quot;
             </p>
-            <p className="text-church-blue font-semibold mt-4">2 Corinthians 9:7</p>
+            <p className="text-church-gold font-semibold mt-4">2 Corinthians 9:7</p>
           </div>
         </div>
       </section>
@@ -162,29 +93,7 @@ export default function Donations() {
         </div>
       </section>
 
-      <footer className="bg-church-blue text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Ekklesia Nondenominational Church</h3>
-              <p className="text-gray-300">
-                A gospel-centered community serving Murray State University and the Murray community.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Service Times</h4>
-              <p className="text-gray-300">Sunday Worship: 11:00 AM</p>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Location</h4>
-              <p className="text-gray-300">
-                617 S 9th St (Gymnasium)<br />
-                Murray, KY 42071
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "fall-kickoff-cookout",
+    "title": "Fall Kickoff Cookout",
+    "date": "2026-09-20",
+    "time": "12:30 PM - 3:00 PM",
+    "location": "617 S 9th St (Gymnasium), Murray, KY 42071",
+    "description": "Burgers, games, and a chance to meet the church family after Sunday worship. Bring a friend and a lawn chair."
+  },
+  {
+    "id": "student-night",
+    "title": "Student Night",
+    "date": "2026-09-24",
+    "time": "7:00 PM - 8:30 PM",
+    "location": "Murray State University, Curris Center",
+    "description": "An evening of worship and teaching for Murray State students, followed by dessert and conversation."
+  },
+  {
+    "id": "womens-bible-study",
+    "title": "Women's Bible Study",
+    "date": "2026-10-01",
+    "time": "6:30 PM - 8:00 PM",
+    "location": "617 S 9th St (Fellowship Room), Murray, KY 42071",
+    "description": "A six-week study through the book of Philippians. No preparation needed for the first week."
+  },
+  {
+    "id": "service-saturday",
+    "title": "Service Saturday",
+    "date": "2026-10-10",
+    "time": "9:00 AM - 12:00 PM",
+    "location": "Meet at 617 S 9th St, Murray, KY 42071",
+    "description": "A morning of yard work and small repairs for neighbors in Murray. Tools provided; all ages welcome."
+  },
+  {
+    "id": "thanksgiving-potluck",
+    "title": "Thanksgiving Potluck",
+    "date": "2026-11-22",
+    "time": "12:15 PM - 2:00 PM",
+    "location": "617 S 9th St (Gymnasium), Murray, KY 42071",
+    "description": "Our annual potluck after the morning service. Bring a dish to share if you are able."
+  }
+]
