@@ -10,7 +10,7 @@ type ChurchEvent = {
   date: string;
   time: string;
   location: string;
-  description: string;
+  description?: string;
 };
 
 // Dates are stored as YYYY-MM-DD. Split the parts by hand so the date is read in
@@ -26,7 +26,8 @@ function formatEventDate(date: string) {
   });
 }
 
-// Sorted here rather than relying on the file being kept in order by hand.
+// Sorted here rather than relying on the file being kept in order by hand. The sort is
+// stable, so two events on the same day stay in the order the JSON lists them.
 // Past events are not filtered out: this page is statically rendered, so a
 // build-time cutoff would go stale. Remove finished events from the JSON.
 const events: ChurchEvent[] = [...(eventsData as ChurchEvent[])].sort((a, b) =>
@@ -85,7 +86,9 @@ export default function UpcomingEvents() {
                     </div>
                   </dl>
 
-                  <p className="text-lg text-gray-700 leading-relaxed">{event.description}</p>
+                  {event.description && (
+                    <p className="text-lg text-gray-700 leading-relaxed">{event.description}</p>
+                  )}
                 </article>
               ))}
             </div>
