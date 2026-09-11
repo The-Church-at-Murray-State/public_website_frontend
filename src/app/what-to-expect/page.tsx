@@ -1,72 +1,12 @@
-"use client";
 import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { CHURCH_ADDRESS, SERVICE_SUMMARY, SERVICE_TIME_LABEL } from "@/lib/site";
 
 export default function WhatToExpect() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="enhanced-navbar relative z-50">
-        <div className="navbar-logo-absolute">
-          <Link href="/">
-            <Image 
-              src="/logos/MCF Church Logo1.jpg" 
-              alt="Ekklesia Nondenominational Church" 
-              className="navbar-logo"
-              width={100}
-              height={100}
-            />
-          </Link>
-        </div>
-        <div className="navbar-container relative">
-          <div className="block md:hidden absolute right-4 top-1/2 -translate-y-1/2">
-            <button
-              aria-label="Toggle navigation menu"
-              onClick={() => setIsMenuOpen((o) => !o)}
-              className="cursor-pointer text-church-gray hover:text-church-gold"
-            >
-              <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-          <div className="navbar-links-section hidden md:block">
-            <div className="navbar-links">
-              <Link href="/" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Home
-              </Link>
-              <Link href="/beliefs" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Beliefs
-              </Link>
-              <Link href="/what-to-expect" className="text-church-blue hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                What to Expect
-              </Link>
-              <Link href="/connect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Connect
-              </Link>
-              <Link href="/donations" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Donate
-              </Link>
-            </div>
-          </div>
-          {/* Current page label on mobile */}
-          <div className="md:hidden col-start-2 justify-self-center font-semibold text-church-blue">
-            What to Expect
-          </div>
-          <div className="hidden md:block"></div>
-        </div>
-      </nav>
-      <div className={`mobile-menu w-full ${isMenuOpen ? "block" : "hidden"} md:hidden`}>
-        <div className="px-4 py-3">
-          <Link href="/" className="">Home</Link>
-          <Link href="/beliefs" className="">Beliefs</Link>
-          <Link href="/what-to-expect" className="">What to Expect</Link>
-          <Link href="/connect" className="">Connect</Link>
-          <Link href="/donations" className="">Donate</Link>
-        </div>
-      </div>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="bg-church-blue text-white py-20">
@@ -93,13 +33,13 @@ export default function WhatToExpect() {
                     <svg className="w-6 h-6 mr-3 text-church-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    Service Times
+                    {SERVICE_TIME_LABEL}
                   </h3>
                   <p className="text-church-gray mb-4">
-                    <strong>Sunday Worship:</strong> 11:00 AM
+                    <strong>{SERVICE_SUMMARY}</strong>
                   </p>
                   <p className="text-gray-600">
-                    We recommend arriving 10-15 minutes early to find parking and get settled, but don&apos;t hesitate to come on in if you are running behind.
+                    We recommend arriving 5-10 minutes early to get settled, but don&apos;t hesitate to come on in if you are running late.
                   </p>
                 </div>
 
@@ -112,11 +52,11 @@ export default function WhatToExpect() {
                     Location & Parking
                   </h3>
                   <p className="text-church-gray mb-4">
-                    617 S 9th St (Gymnasium)<br />
-                    Murray, KY 42071
+                    {CHURCH_ADDRESS.line1}<br />
+                    {CHURCH_ADDRESS.line2}
                   </p>
                   <p className="text-gray-600">
-                    We are located in the Gymnasium behind Grace Baptist Church. The primary entry is located between the two buildings. Free parking is available on-site and on nearby streets.
+                    We are located in the Gymnasium behind Grace Baptist Church. The primary entrance is located between the two buildings. Parking is available beside, behind, and across the road from the main Grace Baptist Sanctuary.
                   </p>
                 </div>
               </div>
@@ -135,7 +75,7 @@ export default function WhatToExpect() {
                   <span className="text-xl font-bold">1</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-church-blue mb-2">Welcome & Greeting (10:55 AM)</h3>
+                  <h3 className="text-xl font-bold text-church-blue mb-2">Welcome & Greeting (11:00 AM)</h3>
                   <p className="text-church-gray">
                     We&apos;ll start with a warm welcome and brief announcements. Don&apos;t worry if you&apos;re 
                     still finding your seat - we understand life happens!
@@ -148,7 +88,7 @@ export default function WhatToExpect() {
                   <span className="text-xl font-bold">2</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-church-blue mb-2">Worship Through Song (11:00 AM)</h3>
+                  <h3 className="text-xl font-bold text-church-blue mb-2">Praise and Worship (11:05 AM)</h3>
                 </div>
               </div>
 
@@ -157,7 +97,7 @@ export default function WhatToExpect() {
                   <span className="text-xl font-bold">3</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-church-blue mb-2">Prayer & Scripture Reading (11:15 AM)</h3>
+                  <h3 className="text-xl font-bold text-church-blue mb-2">Prayer & Scripture Reading (11:20 AM)</h3>
                 </div>
               </div>
 
@@ -166,7 +106,7 @@ export default function WhatToExpect() {
                   <span className="text-xl font-bold">4</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-church-blue mb-2">Biblical Teaching (11:20 AM)</h3>
+                  <h3 className="text-xl font-bold text-church-blue mb-2">Biblical Teaching (11:25 AM)</h3>
                 </div>
               </div>
 
@@ -175,7 +115,7 @@ export default function WhatToExpect() {
                   <span className="text-xl font-bold">5</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-church-blue mb-2">Closing (11:50 AM)</h3>
+                  <h3 className="text-xl font-bold text-church-blue mb-2">Closing (11:55 AM)</h3>
                   <p className="text-church-gray">We will close with prayer. The service should end around 12:00 PM.</p>
                 </div>
               </div>
@@ -193,10 +133,10 @@ export default function WhatToExpect() {
                 Our pastors and members would be delighted to answer any questions you might have.
               </p>
               <p className="text-blue-200 mb-4">
-                We also serve lunch immediately after the service — everyone is welcome to stay and share a meal together!
+                We also serve lunch immediately after the service. Everyone is welcome to stay and share a meal together!
               </p>
               <p className="text-blue-200">
-                Don&apos;t feel obligated to stay if you need to leave, but if you have time, we&apos;d love to get to know you better.
+                Don&apos;t feel obligated to stay if you need to leave, but if you have time, we&apos;d love to get to know you better!
               </p>
             </div>
           </div>
@@ -213,7 +153,7 @@ export default function WhatToExpect() {
 
               <div className="bg-gray-50 p-6 rounded-lg">
                 <h3 className="text-xl font-bold text-church-blue mb-3">Sunday School</h3>
-                <p className="text-church-gray">Sunday school for children runs concurrently during the worship service, so kids can learn in an age-appropriate setting while parents enjoy the main service.</p>
+                <p className="text-church-gray">Sunday school for children runs concurrently with our main service, so kids can learn in an age-appropriate setting while parents enjoy the main service. However, we understand that many visitors may wish to keep their children with them during service, which is perfectly fine as well!</p>
               </div>
             </div>
           </div>
@@ -260,34 +200,7 @@ export default function WhatToExpect() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-church-blue text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Ekklesia Nondenominational Church</h3>
-              <p className="text-gray-300">
-                A gospel-centered community serving Murray State University and the Murray community.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Service Times</h4>
-              <p className="text-gray-300">Sunday Worship: 11:00 AM</p>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Location</h4>
-              <p className="text-gray-300">
-                617 S 9th St (Gymnasium)<br />
-                Murray, KY 42071
-              </p>
-            </div>
-          </div>
-          
-          {/* Copyright removed */}
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

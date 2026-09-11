@@ -1,8 +1,9 @@
+@import "tailwindcss";
+
 /* Slight video zoom utility */
 .video-zoom-slight {
   transform: scale(1.12);
 }
-@import "tailwindcss";
 
 :root {
   --background: #ffffff;
@@ -20,6 +21,9 @@
   --color-primary-gold: var(--primary-gold);
   --color-light-gray: var(--light-gray);
   --color-dark-gray: var(--dark-gray);
+  --color-church-blue: var(--primary-blue);
+  --color-church-gold: var(--primary-gold);
+  --color-church-gray: var(--dark-gray);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -169,59 +173,6 @@ html {
 /* Ensure video doesn't interfere with text and navigation */
 video {
   pointer-events: none;
-}
-
-/* Custom color classes for the new color scheme */
-.text-church-blue {
-  color: #003f5c;
-}
-
-.bg-church-blue {
-  background-color: #003f5c;
-}
-
-.text-church-gold {
-  color: #ffcc00;
-}
-
-.bg-church-gold {
-  background-color: #ffcc00;
-}
-
-.text-church-gray {
-  color: #696969;
-}
-
-.bg-church-gray {
-  background-color: #696969;
-}
-
-.border-church-blue {
-  border-color: #003f5c;
-}
-
-.border-church-gold {
-  border-color: #ffcc00;
-}
-
-.hover\:bg-church-blue:hover {
-  background-color: #003f5c;
-}
-
-.hover\:bg-church-gold:hover {
-  background-color: #ffcc00;
-}
-
-.hover\:text-church-blue:hover {
-  color: #003f5c;
-}
-
-.hover\:text-church-gold:hover {
-  color: #ffcc00;
-}
-
-.focus\:ring-church-blue:focus {
-  --tw-ring-color: #003f5c;
 }
 
 /* Mobile menu dropdown base (visibility controlled via React state and utility classes) */

@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 // Local ESV verse map for hover text (expanded below)
 const VERSE_MAP: Record<string, string> = {
@@ -182,75 +183,9 @@ function BibleVerse({ reference }: { reference: string }) {
 }
 
 export default function Beliefs() {
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	return (
 		<div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="enhanced-navbar relative z-50">
-        <div className="navbar-logo-absolute">
-          <Link href="/">
-            <Image 
-              src="/logos/MCF Church Logo1.jpg" 
-              alt="Ekklesia Nondenominational Church" 
-              className="navbar-logo"
-              width={100}
-              height={100}
-            />
-          </Link>
-        </div>
-        <div className="navbar-container relative">
-          <div className="block md:hidden absolute right-4 top-1/2 -translate-y-1/2">
-            <button
-              aria-label="Toggle navigation menu"
-              onClick={() => {
-                setIsMenuOpen((o) => {
-                  const next = !o;
-                  console.log("[Beliefs] toggle menu ->", next);
-                  return next;
-                });
-              }}
-              className="cursor-pointer text-church-gray hover:text-church-gold"
-            >
-              <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-          <div className="navbar-links-section hidden md:block">
-            <div className="navbar-links">
-              <Link href="/" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Home
-              </Link>
-              <Link href="/beliefs" className="text-church-blue hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Beliefs
-              </Link>
-              <Link href="/what-to-expect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                What to Expect
-              </Link>
-              <Link href="/connect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Connect
-              </Link>
-              <Link href="/donations" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Donate
-              </Link>
-            </div>
-          </div>
-          {/* Current page label on mobile */}
-          <div className="md:hidden col-start-2 justify-self-center font-semibold text-church-blue">
-            Beliefs
-          </div>
-          <div className="hidden md:block"></div>
-        </div>
-      </nav>
-      <div className={`mobile-menu w-full ${isMenuOpen ? "block" : "hidden"} md:hidden`}>
-        <div className="px-4 py-3">
-          <Link href="/" className="">Home</Link>
-          <Link href="/beliefs" className="">Beliefs</Link>
-          <Link href="/what-to-expect" className="">What to Expect</Link>
-          <Link href="/connect" className="">Connect</Link>
-          <Link href="/donations" className="">Donate</Link>
-        </div>
-      </div>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="bg-church-blue text-white py-20">
@@ -351,7 +286,7 @@ export default function Beliefs() {
               <div className="bg-gray-50 p-8 rounded-lg">
                 <h3 className="text-2xl font-bold text-church-blue mb-4">Attributes of God</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  God is the uncaused cause of all things. God is unchanging through the ages. He is perfect in power, holiness, righteousness, justice, and goodness. God is the basis for all moral law and every good thing. God is described by Scripture as love and light. Human experiences of love, light, and what is fundamentally good all find their foundation in Him. God does not sin, lie, or act against any part of His own nature. God is undivided in Himself. God is higher than all other things including evil powers and rulers who are merely created beings. God is all powerful, knowledgeable, and present. God is the only One who is worthy of glory, honor, praise, and worship. (<BibleVerse reference="Gen. 1:1" />, <BibleVerse reference="Mal. 3:6" />, <BibleVerse reference="1 John 1:5" />, <BibleVerse reference="1 John 4:16" />, <BibleVerse reference="Heb. 6:18" />)
+                  God is the uncaused cause of all things. God is unchanging through the ages. He is perfect in power, holiness, righteousness, justice, and goodness. God is the basis for all moral law and every good thing. God is described by Scripture as love and light. Human experiences of love, light, and what is fundamentally good all find their foundation in Him. God does not sin, lie, or act against His own nature. God is undivided in Himself. God is higher than all other things including evil powers and rulers who are merely created beings. God is all powerful, knowledgeable, and present. God is the only One who is worthy of glory, honor, praise, and worship. (<BibleVerse reference="Gen. 1:1" />, <BibleVerse reference="Mal. 3:6" />, <BibleVerse reference="1 John 1:5" />, <BibleVerse reference="1 John 4:16" />, <BibleVerse reference="Heb. 6:18" />)
                 </p>
               </div>
             </div>
@@ -478,34 +413,7 @@ export default function Beliefs() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-church-blue text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Ekklesia Nondenominational Church</h3>
-              <p className="text-gray-300">
-                A gospel-centered community serving Murray State University and the Murray community.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Service Times</h4>
-              <p className="text-gray-300">Sunday Worship: 11:00 AM</p>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Location</h4>
-              <p className="text-gray-300">
-                617 S 9th St (Gymnasium)<br />
-                Murray, KY 42071
-              </p>
-            </div>
-          </div>
-          
-          {/* Copyright removed */}
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

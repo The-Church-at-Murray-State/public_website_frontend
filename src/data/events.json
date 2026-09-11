@@ -1,0 +1,45 @@
+[
+  {
+    "id": "board-game-night",
+    "title": "Board Game Night",
+    "date": "2026-09-30",
+    "time": "5:30 PM",
+    "location": "617 S 9th St (Gymnasium), Murray, KY 42071"
+  },
+  {
+    "id": "missions-yard-sale",
+    "title": "Yard Sale",
+    "date": "2026-10-10",
+    "time": "Morning",
+    "location": "617 S 9th St (Gymnasium), Murray, KY 42071",
+    "description": "A fundraiser for missions."
+  },
+  {
+    "id": "worship-night",
+    "title": "Worship Night",
+    "date": "2026-10-10",
+    "time": "Evening",
+    "location": "Location to be announced"
+  },
+  {
+    "id": "fall-festival",
+    "title": "Fall Festival",
+    "date": "2026-10-28",
+    "time": "5:30 PM - 7:00 PM",
+    "location": "617 S 9th St (Gymnasium), Murray, KY 42071"
+  },
+  {
+    "id": "thanksgiving",
+    "title": "Thanksgiving",
+    "date": "2026-11-18",
+    "time": "Time to be announced",
+    "location": "617 S 9th St (Gymnasium), Murray, KY 42071"
+  },
+  {
+    "id": "christmas",
+    "title": "Christmas",
+    "date": "2026-12-16",
+    "time": "Time to be announced",
+    "location": "617 S 9th St (Gymnasium), Murray, KY 42071"
+  }
+]

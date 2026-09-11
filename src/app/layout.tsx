@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { CHURCH_NAME, CHURCH_TAGLINE, LOGO } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,12 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ekklesia Nondenominational Church",
-  description: "A gospel-centered church serving the Murray State University community and the city of Murray, Kentucky.",
+  title: CHURCH_NAME,
+  description: CHURCH_TAGLINE,
   icons: {
-    icon: "/logos/MCF Church Logo1.jpg",
-    shortcut: "/logos/MCF Church Logo1.jpg",
-    apple: "/logos/MCF Church Logo1.jpg",
+    icon: LOGO.src,
+    shortcut: LOGO.src,
+    apple: LOGO.src,
   },
 };
 

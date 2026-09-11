@@ -1,12 +1,18 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import {
+  CHURCH_ADDRESS,
+  CHURCH_NAME,
+  CHURCH_TAGLINE,
+  SERVICE_SUMMARY,
+  SERVICE_TIME_LABEL,
+} from "@/lib/site";
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   useEffect(() => {
-    console.log("[Home] mounted");
     // Lazy load video after page content loads
     const loadVideo = () => {
       const video = document.querySelector('video.lazy-video') as HTMLVideoElement;
@@ -48,80 +54,16 @@ export default function Home() {
   }, []);
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="enhanced-navbar relative z-50">
-        <div className="navbar-logo-absolute">
-          <Image 
-            src="/logos/MCF Church Logo1.jpg" 
-            alt="Ekklesia Nondenominational Church" 
-            className="navbar-logo"
-            width={100}
-            height={100}
-          />
-        </div>
-        <div className="navbar-container relative">
-          <div className="block md:hidden absolute right-4 top-1/2 -translate-y-1/2">
-            <button
-              aria-label="Toggle navigation menu"
-              onClick={() => {
-                setIsMenuOpen((o) => {
-                  const next = !o;
-                  console.log("[Home] toggle menu ->", next);
-                  return next;
-                });
-              }}
-              className="cursor-pointer text-church-gray hover:text-church-gold"
-            >
-              <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-          <div className="navbar-links-section hidden md:block">
-            <div className="navbar-links">
-              <Link href="/" className="text-church-blue hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Home
-              </Link>
-              <Link href="/beliefs" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Beliefs
-              </Link>
-              <Link href="/what-to-expect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                What to Expect
-              </Link>
-              <Link href="/connect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Connect
-              </Link>
-              <Link href="/donations" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Donate
-              </Link>
-            </div>
-          </div>
-          {/* Current page label on mobile */}
-          <div className="md:hidden col-start-2 justify-self-center font-semibold text-church-blue">
-            Home
-          </div>
-          {/* Mobile menu button (duplicate removed) */}
-          <div className="hidden md:block"></div>
-        </div>
-      </nav>
-      <div className={`mobile-menu w-full ${isMenuOpen ? "block" : "hidden"} md:hidden`}>
-        <div className="px-4 py-3">
-          <Link href="/" className="">Home</Link>
-          <Link href="/beliefs" className="">Beliefs</Link>
-          <Link href="/what-to-expect" className="">What to Expect</Link>
-          <Link href="/connect" className="">Connect</Link>
-          <Link href="/donations" className="">Donate</Link>
-        </div>
-      </div>
+      <Navbar />
 
       {/* Hero Section with Video Background */}
       <section className="relative h-[calc(95svh-80px)] flex items-center justify-center overflow-hidden">
         {/* Video Background */}
-        <video 
+        <video
           className="absolute inset-0 w-full h-full object-cover lazy-video video-zoom-slight"
-          autoPlay 
-          muted 
-          loop 
+          autoPlay
+          muted
+          loop
           playsInline
           preload="metadata"
         >
@@ -129,29 +71,28 @@ export default function Home() {
           {/* Fallback for browsers that don't support WebM */}
           Your browser does not support the video tag.
         </video>
-        
+
         {/* Video Overlay for better text readability */}
         <div className="absolute inset-0 bg-black/40"></div>
-        
+
         {/* Hero Content */}
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Welcome to<br />
-            <span className="text-church-gold">Ekklesia Nondenominational Church</span>
+            Welcome to <span className="text-church-gold">{CHURCH_NAME}</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto">
-            A gospel-centered community serving Murray State University and the Murray community.
+            {CHURCH_TAGLINE}
           </p>
-          
+
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link 
+            <Link
               href="/what-to-expect"
               className="bg-church-gold hover:bg-church-gold text-white font-semibold py-3 px-8 rounded-lg text-lg transition-colors duration-200 shadow-lg"
             >
               Learn More
             </Link>
-            <Link 
+            <Link
               href="/connect"
               className="bg-transparent border-2 border-white hover:bg-white hover:text-church-blue text-white font-semibold py-3 px-8 rounded-lg text-lg transition-colors duration-200"
             >
@@ -179,17 +120,17 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Service Times & Location */}
+            {/* Service Time & Location */}
             <div className="space-y-8">
               <div className="bg-white p-8 rounded-lg shadow-lg">
                 <h3 className="text-2xl font-bold text-church-blue mb-4 flex items-center">
                   <svg className="w-6 h-6 mr-3 text-church-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  Service Times
+                  {SERVICE_TIME_LABEL}
                 </h3>
                 <p className="text-lg text-gray-700">
-                  <strong>Sunday Worship:</strong> 11:00 AM
+                  <strong>{SERVICE_SUMMARY}</strong>
                 </p>
               </div>
 
@@ -202,8 +143,8 @@ export default function Home() {
                   Location
                 </h3>
                 <p className="text-lg text-gray-700">
-                  617 S 9th St (Gymnasium)<br />
-                  Murray, KY 42071
+                  {CHURCH_ADDRESS.line1}<br />
+                  {CHURCH_ADDRESS.line2}
                 </p>
               </div>
             </div>
@@ -211,13 +152,9 @@ export default function Home() {
             {/* Mission Statement */}
             <div className="bg-church-blue text-white p-8 rounded-lg">
               <h3 className="text-2xl font-bold mb-6">Our Mission</h3>
-              <p className="text-lg leading-relaxed mb-6">
-                We exist to glorify God by making disciples of Jesus Christ through gospel-centered 
-                worship, biblical teaching, authentic community, and missional living.
-              </p>
               <p className="text-lg leading-relaxed">
-                Whether you&apos;re a Murray State student, a longtime Murray resident, or just visiting,
-                we&apos;d love to welcome you into our community.
+                We exist to glorify God by making disciples of Jesus Christ through gospel-centered
+                worship, biblical teaching, authentic community, and missional living.
               </p>
             </div>
           </div>
@@ -228,7 +165,7 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-church-blue mb-16">Connect With Us</h2>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Link href="/beliefs" className="group bg-gray-50 hover:bg-church-blue p-8 rounded-lg text-center transition-colors duration-300">
               <div className="text-church-gold group-hover:text-church-gold mb-4">
@@ -263,34 +200,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-church-blue text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Ekklesia Nondenominational Church</h3>
-              <p className="text-gray-300">
-                A gospel-centered community serving Murray State University and the Murray community.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Service Times</h4>
-              <p className="text-gray-300">Sunday Worship: 11:00 AM</p>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Location</h4>
-              <p className="text-gray-300">
-                617 S 9th St (Gymnasium)<br />
-                Murray, KY 42071
-              </p>
-            </div>
-          </div>
-          
-          {/* Copyright removed */}
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

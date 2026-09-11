@@ -1,51 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function Messages() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="enhanced-navbar relative z-50">
-        <div className="navbar-logo-absolute">
-          <Link href="/">
-            <Image 
-              src="/logos/MCF Church Logo1.jpg" 
-              alt="Ekklesia Nondenominational Church" 
-              className="navbar-logo"
-              width={100}
-              height={100}
-            />
-          </Link>
-        </div>
-        <div className="navbar-container relative">
-          <div className="navbar-links-section hidden md:block">
-            <div className="navbar-links">
-              <Link href="/" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Home
-              </Link>
-              <Link href="/beliefs" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Beliefs
-              </Link>
-              <Link href="/what-to-expect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                What to Expect
-              </Link>
-              <Link href="/messages" className="text-church-blue hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Messages
-              </Link>
-              <Link href="/connect" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Connect
-              </Link>
-              <Link href="/donations" className="text-church-gray hover:text-church-gold px-4 py-3 rounded-md text-lg font-medium transition-colors">
-                Donate
-              </Link>
-            </div>
-          </div>
-          {/* Current page label on mobile */}
-          <div className="md:hidden col-start-2 justify-self-center font-semibold text-church-blue">
-            Messages
-          </div>
-        </div>
-      </nav>
+      <Navbar label="Messages" />
 
       {/* Hero Section */}
       <section className="bg-church-blue text-white py-20">
@@ -215,34 +175,7 @@ export default function Messages() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-church-blue text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Ekklesia Nondenominational Church</h3>
-              <p className="text-gray-300">
-                A gospel-centered community serving Murray State University and the Murray community.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Service Times</h4>
-              <p className="text-gray-300">Sunday Worship: 11:00 AM</p>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Location</h4>
-              <p className="text-gray-300">
-                617 S 9th St (Gymnasium)<br />
-                Murray, KY 42071
-              </p>
-            </div>
-          </div>
-          
-          {/* Copyright removed */}
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
