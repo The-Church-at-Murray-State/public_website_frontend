@@ -24,7 +24,7 @@ export default function Navbar({ label }: NavbarProps) {
             src={LOGO.src}
             alt={LOGO.alt}
             className="navbar-logo"
-            width={100}
+            width={128}
             height={100}
           />
         </div>
