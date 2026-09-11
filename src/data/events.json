@@ -8,11 +8,10 @@
   },
   {
     "id": "missions-yard-sale",
-    "title": "Yard Sale",
+    "title": "Church Yard Sale",
     "date": "2026-10-10",
     "time": "Morning",
-    "location": "617 S 9th St (Gymnasium), Murray, KY 42071",
-    "description": "A fundraiser for missions."
+    "location": "617 S 9th St (Gymnasium), Murray, KY 42071"
   },
   {
     "id": "worship-night",
