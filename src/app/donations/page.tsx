@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FundraisingMeter from "@/components/FundraisingMeter";
+import { MISSION_TRIP_FUNDRAISER } from "@/data/fundraiser";
 
 export default function Donations() {
   return (
@@ -18,6 +20,18 @@ export default function Donations() {
 
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-16">
+            <FundraisingMeter {...MISSION_TRIP_FUNDRAISER}>
+              Despite having strong historic ties to Christianity, Sweden is a highly secular nation
+              that poses unique challenges to the body of Christ. Next summer, we will be visiting a
+              church there to help support and grow their children&apos;s ministry. To contribute to
+              our mission, add &ldquo;
+              <strong className="font-semibold text-gray-900">MISSION TRIP</strong>&rdquo; to the
+              description when donating through the links below. We are grateful for your prayer
+              and support.
+            </FundraisingMeter>
+          </div>
+
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-church-blue mb-6">Give Online</h2>
             <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">

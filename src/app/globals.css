@@ -24,6 +24,10 @@
   --color-church-blue: var(--primary-blue);
   --color-church-gold: var(--primary-gold);
   --color-church-gray: var(--dark-gray);
+  /* Fundraising meter: the church-blue hue lifted to a mid step so it reads as colour,
+     with a light step of the same hue as the unfilled track. */
+  --color-meter-fill: #007aae;
+  --color-meter-track: #dceefa;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
