@@ -56,9 +56,9 @@ export default function Connect() {
                     <div className="min-w-0 text-left break-words">
                       <h3 className="text-xl font-bold text-church-blue mb-2">Email</h3>
                       <ul className="text-church-gray space-y-2 list-disc pl-5">
-                        <li><span className="font-semibold">General Inquiries:</span> contact@encmurray.com</li>
-                        <li><span className="font-semibold">Pastor Jamie (Spiritual Concerns):</span> pastor@encmurray.com</li>
-                        <li><span className="font-semibold">Website/Tech Issues:</span> admin@encmurray.com</li>
+                        <li><span className="font-semibold">General Inquiries:</span> contact@eccmurray.com</li>
+                        <li><span className="font-semibold">Pastor Jamie (Spiritual Concerns):</span> pastor@eccmurray.com</li>
+                        <li><span className="font-semibold">Website/Tech Issues:</span> admin@eccmurray.com</li>
                       </ul>
                     </div>
                   </div>
@@ -105,7 +105,7 @@ export default function Connect() {
                   For spiritual concerns, pastoral care, or to schedule a meeting, please contact Pastor Jamie directly at:
                 </p>
                 <p className="text-church-gold font-semibold text-lg">
-                  pastor@encmurray.com
+                  pastor@eccmurray.com
                 </p>
               </div>
             </div>
