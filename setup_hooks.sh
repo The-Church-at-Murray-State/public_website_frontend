@@ -18,11 +18,11 @@ echo "[Hook] Using env file: $ENV_FILE"
 
 # Determine route patterns
 if [ "$LOWER_BRANCH" = "production" ]; then
-  ROUTE_PATTERN="encmurray.com"
-  WWW_ROUTE_PATTERN="www.encmurray.com"
+  ROUTE_PATTERN="eccmurray.com"
+  WWW_ROUTE_PATTERN="www.eccmurray.com"
 else
-  ROUTE_PATTERN="$LOWER_BRANCH.encmurray.com"
-  WWW_ROUTE_PATTERN="www.$LOWER_BRANCH.encmurray.com"
+  ROUTE_PATTERN="$LOWER_BRANCH.eccmurray.com"
+  WWW_ROUTE_PATTERN="www.$LOWER_BRANCH.eccmurray.com"
 fi
 
 echo "[Hook] Setting route patterns to: $ROUTE_PATTERN and $WWW_ROUTE_PATTERN"
@@ -91,15 +91,15 @@ echo "[Setup] post-checkout hook created at $HOOK_PATH"
 
 # --- Create env files ---
 cat > .env.production << EOF
-NEXT_PUBLIC_SITE_URL=https://encmurray.com
+NEXT_PUBLIC_SITE_URL=https://eccmurray.com
 EOF
 
 cat > .env.staging << EOF
-NEXT_PUBLIC_SITE_URL=https://staging.encmurray.com
+NEXT_PUBLIC_SITE_URL=https://staging.eccmurray.com
 EOF
 
 cat > .env.testing << EOF
-NEXT_PUBLIC_SITE_URL=https://testing.encmurray.com
+NEXT_PUBLIC_SITE_URL=https://testing.eccmurray.com
 EOF
 
 echo "[Setup] Created .env.production, .env.staging, .env.testing files."
